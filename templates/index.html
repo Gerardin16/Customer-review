@@ -2,30 +2,62 @@
 
 {% block body %}
 
-    <div class="jumbotron-fluid">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-lg-6 offset-lg-3">
                 <form  method="POST">
                     {# This hidden_tag is a CSRF security feature. #}
                     {{ form.hidden_tag() }}
-                    {{ form.name.label }} {{form.name}}
-                    <br>
-                    {{form.product.label}} {{form.product}}
-                    <br>
-                    {{form.review.label}} {{form.review}}
-                   <br>
-                    {{ form.submit(class='common-background-color') }}
+                    
+                        <div class="form-group row">
+                          <label for="custName" class="col-sm-4 col-form-label"> {{ form.name.label }} </label>
+                          <div class="col-sm-8">
+                            {{ form.name(class='form-control') }}
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="proName" class="col-sm-4 col-form-label"> {{ form.product.label }} </label>
+                            <div class="col-sm-8">
+                              {{ form.product(class='custom-select') }}
+                            </div>
+                          </div>
+                        <div class="form-group row">
+                            <label for="reviewProduct" class="col-sm-4 col-form-label"> {{ form.review.label }} </label>
+                            <div class="col-sm-8">
+                              {{ form.review(class="form-control") }}
+                            </div>
+                        </div>
+                        <div class="form-group row ">
+                            <label for="reviewSubmit" class="col-md-6 offset-md-4 col-form-label ">
+                            {{ form.submit(class='btn btn-secondary btn-lg submit-button') }} </label>
+                        </div>
                 </form>
             </div>
         </div>
     </div>
 
-    <!-- <div class="container-fluid">
+    <div>
+        <hr class="horizontal-line">
+    </div>
+
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-6 ">
+            <div class="col-lg-6 offset-lg-3 ">
                   <h4>Reviews</h4>      
             </div>
+            <div class="col-lg-6 offset-lg-3 ">
+                <table class="display table nowrap responsive table-bordered " >
+                    <tr>
+                        <thead class="table-dark">
+                            <td >Name</td>
+                            <td>Product</td>
+                            <td>Review</td>
+                        </thead>
+                    </tr>
+                </table>
+          </div>
+           
         </div>
-    </div> -->
+    </div>
             
 {% endblock %}

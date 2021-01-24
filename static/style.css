@@ -7,7 +7,6 @@ body{
 
 h1,h2,h3,h4,h5,h6{
 
-    
     margin: 50px auto 25px;
     text-align: center;
 }
@@ -21,3 +20,10 @@ h1,h2,h3,h4,h5,h6{
     
 }
 
+.submit-button{
+    margin-top: 20px;
+}
+
+.table-width{
+    width:100%;
+}
