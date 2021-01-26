@@ -2,7 +2,7 @@
 from flask import Flask,render_template,request,flash,redirect,url_for
 from flask_wtf import FlaskForm
 from wtforms import (StringField,SelectField,TextAreaField,SubmitField)
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired,InputRequired
 import csv
 
 app = Flask(__name__)
@@ -22,7 +22,7 @@ countOfReviews = 0
 class ReviewForm(FlaskForm):
 
    #Get the fields to be filled in the form
-    name = StringField('Name*: ',validators=[DataRequired()])
+    name = StringField('Name*: ',validators=[InputRequired()])
     product = SelectField(u'Choose your product:',
                           choices=[('Samsung', 'Samsung'), ('Oneplus', 'Oneplus'),
                                    ('Vivo 5', 'Vivo 5'), ('Redmi 6', 'Redmi 6')])
