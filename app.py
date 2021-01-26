@@ -46,7 +46,7 @@ def index():
 
     
     # If the form is valid on submission and the method is 'POST'
-    if form.validate_on_submit() and  request.method == 'POST' :
+    if form.validate_on_submit()  :
         try:
         # Grab the data from the form.
             name= form.name.data
@@ -64,9 +64,11 @@ def index():
             # Message to display on successful submission of the review
             flash('Your review has been submitted successfully')
             return redirect(url_for('index'))
+   
         except:
             flash("Your review has not been submitted successfully")
             return redirect(url_for('index'))
+
     return render_template('index.html', form=form, submitReviews=submitReviews,countOfReviews=len(submitReviews))
 
 
