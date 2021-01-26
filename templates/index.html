@@ -42,8 +42,8 @@
                             </div>
                         </div>
                         <div class="form-group row ">
-                            <label for="reviewSubmit" class="col-md-6 offset-md-4 col-form-label ">
-                            {{ form.submit(class='btn btn-secondary btn-lg submit-button') }} </label>
+                            {{ form.submit(class='btn btn-secondary btn-lg submit-button input-group-btn 
+                            col-lg-5 offset-lg-4 col-md-5 offset-md-4 col-sm-5 offset-sm-4') }} 
                         </div>
                 </form>
             </div>
@@ -59,9 +59,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-6 offset-lg-3 ">
-                <h4 class="text-center">Reviews</h4> 
-                <div>    
-                    <table class="display table nowrap responsive table-bordered table-width" >
+                <h4 class="text-center">Reviews</h4>    
+                <table class="display table nowrap responsive table-bordered table-width" >
                         <tr>
                             <thead class="table-dark text-center">
                                 <td >Name</td>
@@ -69,16 +68,15 @@
                                 <td>Review</td>
                             </thead>
                         </tr>
-                        {% for eachReview in submitReviews %}:
+                        {% for eachReview in submitReviews %}
                             <tr>
-                                <td>{{ eachReview.get('Name') }}</td>
-                                <td>{{ eachReview.get('Product') }}</td>
-                                <td>{{ eachReview.get('Review') }}</td>
+                                <td>{{ values[0] }}</td>
+                                <td>{{ values[1] }}</td>
+                                <td>{{ values[2] }}</td>
                             </tr>
                         {% endfor %}
                     
-                    </table>
-                </div>     
+                </table>    
             </div>
         </div>
     </div>
