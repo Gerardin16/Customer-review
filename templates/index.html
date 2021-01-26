@@ -70,9 +70,9 @@
                         </tr>
                         {% for eachReview in submitReviews %}
                             <tr>
-                                <td>{{ values[0] }}</td>
-                                <td>{{ values[1] }}</td>
-                                <td>{{ values[2] }}</td>
+                                <td>{{ eachReview.get('Product')  }}</td>
+                                <td>{{ eachReview.get('Product') }}</td>
+                                <td>{{ eachReview.get('Review') }}</td>
                             </tr>
                         {% endfor %}
                     
