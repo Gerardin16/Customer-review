@@ -8,7 +8,7 @@ body{
 h1,h2,h3,h4,h5,h6{
 
     margin: 50px auto 25px;
-    text-align: center;
+   
 }
 
 .horizontal-line{
@@ -27,3 +27,13 @@ h1,h2,h3,h4,h5,h6{
 .table-width{
     width:100%;
 }
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    /* margin-top:200px; */
+    
+ }
+

@@ -1,7 +1,21 @@
 {% extends "base.html"%}
 
 {% block body %}
-
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                {# get_flashed_messages() is auto sent to the template with the flash() call #}
+                {% for mess in get_flashed_messages()  %}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close" class="fade close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    {{mess}}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>           
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-6 offset-lg-3">
@@ -39,25 +53,37 @@
     <div>
         <hr class="horizontal-line">
     </div>
-
+    {% if countOfReviews == 0 %}
+       <p class="text-center">No reviews has been submitted.</p>
+    {% else %}
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-6 offset-lg-3 ">
-                  <h4>Reviews</h4>      
+                <h4 class="text-center">Reviews</h4> 
+                <div>    
+                    <table class="display table nowrap responsive table-bordered table-width" >
+                        <tr>
+                            <thead class="table-dark text-center">
+                                <td >Name</td>
+                                <td>Product</td>
+                                <td>Review</td>
+                            </thead>
+                        </tr>
+                        {% for eachReview in submitReviews %}:
+                            <tr>
+                                <td>{{ eachReview.get('Name') }}</td>
+                                <td>{{ eachReview.get('Product') }}</td>
+                                <td>{{ eachReview.get('Review') }}</td>
+                            </tr>
+                        {% endfor %}
+                    
+                    </table>
+                </div>     
             </div>
-            <div class="col-lg-6 offset-lg-3 ">
-                <table class="display table nowrap responsive table-bordered " >
-                    <tr>
-                        <thead class="table-dark">
-                            <td >Name</td>
-                            <td>Product</td>
-                            <td>Review</td>
-                        </thead>
-                    </tr>
-                </table>
-          </div>
-           
         </div>
     </div>
+    {% endif %}
+
+    
             
 {% endblock %}
